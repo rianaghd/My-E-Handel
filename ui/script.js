@@ -1,9 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Lista med produkter
   const products = [
-    { name: "Proteinbar", price: 25, category: "proteinbar" },
-    { name: "Sportdryck", price: 30, category: "dryck" },
-    { name: "Shaker", price: 120, category: "tillbehor" },
+    { name: "Proteinbar Choklad", price: 25, category: "proteinbar", img: "https://via.placeholder.com/150?text=Proteinbar" },
+    { name: "Proteinbar Vanilj", price: 25, category: "proteinbar", img: "https://via.placeholder.com/150?text=Proteinbar" },
+    { name: "Sportdryck Apelsin", price: 30, category: "dryck", img: "https://via.placeholder.com/150?text=Dryck" },
+    { name: "Sportdryck Bär", price: 30, category: "dryck", img: "https://via.placeholder.com/150?text=Dryck" },
+    { name: "Shaker Röd", price: 120, category: "tillbehor", img: "https://via.placeholder.com/150?text=Shaker" },
+    { name: "Shaker Blå", price: 120, category: "tillbehor", img: "https://via.placeholder.com/150?text=Shaker" },
   ];
 
   // Varukorg
@@ -27,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const card = document.createElement("article");
         card.className = "product-card";
         card.innerHTML = `
+          <img src="${p.img}" alt="${p.name}">
           <h3>${p.name}</h3>
           <p>Pris: ${p.price} kr</p>
           <button class="add-cart-btn">Lägg i varukorg</button>
