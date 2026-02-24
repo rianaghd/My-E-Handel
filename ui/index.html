@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini E-handel – Produkter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Mini E-handel</h1>
+    <nav>
+      <a href="index.html">Produkter</a>
+      <a href="page2.html">Varukorg (<span id="cart-count">0</span>)</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="filter">
+      <label for="category-filter">Filtrera kategori:</label>
+      <select id="category-filter">
+        <option value="all">Alla</option>
+        <option value="proteinbar">Proteinbar</option>
+        <option value="dryck">Dryck</option>
+        <option value="tillbehor">Tillbehör</option>
+      </select>
+    </section>
+
+    <section id="product-list" class="product-list">
+      <!-- Produkter läggs till via JS -->
+    </section>
+  </main>
+
+  <footer>
+    <p>Mini E-handel &copy; 2026</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
