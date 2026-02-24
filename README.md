@@ -78,10 +78,3 @@ Diagrammen finns i `docs/class-diagram.png` och `docs/activity-diagram.png`.
 2. Lade till micro-interaction på “lägg i varukorg”-knapp → för att ge visuell feedback och bättre UX.  
 
 ---
-
-## Reflektion för VG
-Projektet visar tydligt hur man går från krav till modell till prototyp:  
-- UML och aktivitetsdiagram beskriver systemets struktur och flöde på ett sätt som kopplar direkt till användarnas behov.  
-- UI är konsekvent, semantiskt korrekt och stöder Use Case.  
-- Prioritering med MoSCoW visar tydligt vilka krav som är kritiska, vilka som är önskvärda och vilka som inte tas med i prototypen.  
-- Risker och begränsningar är tydliga: prototypen har ingen betalningslösning, men flödet för varukorg och checkout är fullt demonstrerbart.  
