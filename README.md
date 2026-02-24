@@ -49,11 +49,14 @@ Lösningen förbättrar användarupplevelsen, sparar tid och möjliggör en stru
 **Main Flow:**
 1. User ser lista med produkter.  
 2. Klickar på ikon "lägg i varukorg".  
-3. Produkten läggs i varukorg.  
+3. Systemet kontrollerar om produkten redan finns i varukorg:  
+   - Om ja → antal uppdateras  
+   - Om nej → produkt läggs till i varukorg  
 4. Varukorg uppdateras och totalpris visas.  
+5. UI visar bekräftelse “Tillagd i varukorg”.  
 
 **Alternate Flow:**
-- Om produkten redan finns i varukorg → antal uppdateras i varukorg.  
+- Om användaren inte klickar på någon produkt → systemet väntar på input.  
 
 **Postconditions:**  
 - Varukorg är uppdaterad med vald produkt, totalpris korrekt.  
@@ -66,15 +69,21 @@ Lösningen förbättrar användarupplevelsen, sparar tid och möjliggör en stru
   - `User` har en `Cart` (aggregation).  
   - `Cart` innehåller flera `Product` (composition).  
   - `Product` tillhör en `Category` (aggregation).  
+  - **Metoder i UML:**  
+    - `Cart`: `addItem()`, `removeItem()`, `increaseQuantity()`, `getTotal()`  
+    - `UserInterface`: `renderProducts()`, `renderCart()`, `updateCartCount()`, `handleAddToCart()`  
+  - **Category enum:** `proteinbar, dryck, tillbehor`  
+
 - **Aktivitetsdiagram:** Flöde för “lägg produkt i varukorg”:  
-  - Start → Visa produktlista → Klicka “lägg i varukorg?” → Beslut: redan i cart? → Uppdatera antal eller lägg till ny → Uppdatera totalpris → Visa bekräftelse → Slut.  
+  - Start → Visa produktlista → Klicka “lägg i varukorg?” → Beslut: redan i cart? → Uppdatera antal eller lägg till ny → Uppdatera totalpris → Uppdatera cart-count → Visa bekräftelse → Slut.  
 
 Diagrammen finns i `docs/class-diagram.png` och `docs/activity-diagram.png`.
+
+**Placeholder screenshot:**  
+![Produktlista screenshot](docs/screenshot-placeholder.png)
 
 ---
 
 ## Change Notes
 1. Lade till live filter på produktlistan → för att användare snabbt ska hitta produkter.  
 2. Lade till micro-interaction på “lägg i varukorg”-knapp → för att ge visuell feedback och bättre UX.  
-
----
