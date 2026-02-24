@@ -1,63 +1,87 @@
-# My-E-Handel
-# Mini E-handel – Produktlista och Varukorg
+# Mini E-handel – Produkter, Kategorier och Varukorg
 
 ## Problem Statement
-Användare vill snabbt kunna se produkter, filtrera på kategori och lägga saker i varukorgen utan att behöva kontakta butikspersonal. 
-Den här lösningen sparar tid, gör köpupplevelsen smidig och strukturerad och möjliggör att användaren kan handla digitalt på ett enkelt sätt.
+Många användare vill kunna handla produkter online utan att behöva kontakta butikspersonal eller leta manuellt efter information.  
+Den här mini e-handelslösningen gör det möjligt att se produkter, filtrera på kategori, lägga till produkter i varukorgen och få en snabb överblick över totalpris.  
+Lösningen förbättrar användarupplevelsen, sparar tid och möjliggör en strukturerad digital shoppingupplevelse.
 
 ---
 
 ## Stakeholders
-- **Admin** – Skapar och uppdaterar produkter och kategorier, ser ordrar.  
-- **User** – Kan se produkter, filtrera, lägga i varukorg och checka ut.  
-- **Guest** – Kan bara se produkter, måste registrera sig för att kunna handla.  
+- **Admin:** Skapar och uppdaterar produkter och kategorier, ser ordrar.  
+- **User:** Kan se produkter, filtrera, lägga i varukorg och checka ut.  
+- **Guest:** Kan endast se produkter, måste registrera sig för att handla.  
 
 ---
 
 ## Kravlista
 
 ### Funktionella krav
-1. Visa lista av produkter med namn, pris och kategori  
-2. Filtrera produkter på kategori  
-3. Lägga produkter i varukorg  
-4. Se varukorg och totalpris  
-5. Ta bort produkt från varukorg  
-6. Checkout / summering av valda produkter  
+1. Visa lista av produkter med namn, pris och kategori.  
+2. Filtrera produkter på kategori.  
+3. Lägga produkter i varukorg.  
+4. Ta bort produkt från varukorg.  
+5. Se varukorg och totalpris.  
+6. Checkout / summering av valda produkter.  
+7. Uppdatera antal produkter om samma produkt läggs till igen.  
+8. Navigera mellan produktlista och varukorgssida.
 
 ### Icke-funktionella krav
-1. UI ska vara responsivt och användarvänligt  
-2. Laddning av sidan < 2 sekunder  
-3. Semantisk HTML och tillgänglighet (accessibility)  
+1. UI ska vara responsivt och användarvänligt.  
+2. Snabb laddning av sidan (<2 sekunder).  
+3. Semantisk HTML och tillgänglighet (accessibility).  
 
 ---
 
 ## Prioritering (MoSCoW)
-- **Must** – Se produkter, lägga i varukorg, filtrera  
-- **Should** – Checkout / totalpris  
-- **Could** – Mini animationer, hover-effekter  
-- **Won’t** – Betalningsgateway (för prototyp)  
+- **Must:** Visa produkter, lägga i varukorg, filtrera, se varukorg och totalpris.  
+- **Should:** Checkout / summering av valda produkter.  
+- **Could:** Animation på "lägg i varukorg", hover-effekter.  
+- **Won’t:** Full betalningslösning (för prototyp).  
 
 ---
 
 ## Use Case – Lägg produkt i varukorg
 
 - **Actor:** User  
-- **Preconditions:** Produkten visas i listan, användaren har sidan öppen  
+- **Preconditions:** Produkten visas i listan, användaren har sidan öppen.  
 
 **Main Flow:**
-1. User ser lista med produkter  
-2. Klickar på ikon "lägg i varukorg"  
-3. Produkten läggs i varukorg  
-4. Varukorg uppdateras och totalpris visas  
+1. User ser lista med produkter.  
+2. Klickar på ikon "lägg i varukorg".  
+3. Produkten läggs i varukorg.  
+4. Varukorg uppdateras och totalpris visas.  
 
 **Alternate Flow:**
-- Om produkten redan finns i varukorg → öka antal i varukorg  
+- Om produkten redan finns i varukorg → antal uppdateras i varukorg.  
 
 **Postconditions:**  
-- Varukorg är uppdaterad med vald produkt  
+- Varukorg är uppdaterad med vald produkt, totalpris korrekt.  
+- Användaren får visuell feedback att produkten lades till.  
+
+---
+
+## UML och Aktivitetsdiagram
+- **Klassdiagram:** Visar relationer mellan `User`, `Cart`, `Product` och `Category`.  
+  - `User` har en `Cart` (aggregation).  
+  - `Cart` innehåller flera `Product` (composition).  
+  - `Product` tillhör en `Category` (aggregation).  
+- **Aktivitetsdiagram:** Flöde för “lägg produkt i varukorg”:  
+  - Start → Visa produktlista → Klicka “lägg i varukorg?” → Beslut: redan i cart? → Uppdatera antal eller lägg till ny → Uppdatera totalpris → Visa bekräftelse → Slut.  
+
+Diagrammen finns i `docs/class-diagram.png` och `docs/activity-diagram.png`.
 
 ---
 
 ## Change Notes
-1. Lagt till live filter på produktlistan → för att användare snabbt ska hitta produkter  
-2. Lade till mini JS-animation på "lägg i varukorg"-knapp → för feedback att produkten lades till  
+1. Lade till live filter på produktlistan → för att användare snabbt ska hitta produkter.  
+2. Lade till micro-interaction på “lägg i varukorg”-knapp → för att ge visuell feedback och bättre UX.  
+
+---
+
+## Reflektion för VG
+Projektet visar tydligt hur man går från krav till modell till prototyp:  
+- UML och aktivitetsdiagram beskriver systemets struktur och flöde på ett sätt som kopplar direkt till användarnas behov.  
+- UI är konsekvent, semantiskt korrekt och stöder Use Case.  
+- Prioritering med MoSCoW visar tydligt vilka krav som är kritiska, vilka som är önskvärda och vilka som inte tas med i prototypen.  
+- Risker och begränsningar är tydliga: prototypen har ingen betalningslösning, men flödet för varukorg och checkout är fullt demonstrerbart.  
